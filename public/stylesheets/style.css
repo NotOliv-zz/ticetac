@@ -1,8 +1,30 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+body{
+  font-family: 'Darker Grotesque', sans-serif;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#4096ee+0,60abf8+56,7abcff+100 */
+background: #4096ee; /* Old browsers */
+background: -moz-linear-gradient(top,  #4096ee 0%, #60abf8 56%, #7abcff 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #4096ee 0%,#60abf8 56%,#7abcff 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #4096ee 0%,#60abf8 56%,#7abcff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4096ee', endColorstr='#7abcff',GradientType=0 ); /* IE6-9 */
+
+} 
+
+/* ---------- Home page -------------- */
+
+
+.navbar{
+  padding:0px ;
+  color: #FFFFFF;
+  
 }
 
-a {
-  color: #00B7FF;
+.navbar:hover{
+  color: #FFFFFF;
+}
+
+.navbar:link{
+  text-decoration:none;
+}
+.logo{
+  margin-left: 10px;
 }
