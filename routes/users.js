@@ -6,6 +6,9 @@ var UserModel = require('../models/users')
 /* SIGN IN // LOGIN */
 
 router.get('/sign-in', function(req, res, next) {
+
+
+  
   res.render('recherche');
 });
 
@@ -30,7 +33,14 @@ router.post('/sign-up', async function(req, res, next) {
   
 })
 
+/* SIGN UP // INSCRIPTION */
 
+router.get('/logout', function(req,res,next){
+
+  req.session.user = null;
+
+  res.redirect('/')
+})
 
 
 module.exports = router;

@@ -17,6 +17,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', end
 
 .navbar{
   padding:0px ;
+  margin:0px;
   color: #FFFFFF;
   
 }
@@ -32,12 +33,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', end
   margin-left: 10px;
 }
 
-/* ---------- Form -------------- */
-
-.titleForm {
-  color: #FFFFFF;
+form{
+height: 50vh;
 }
 
 .titleForm {
-  color: #FFFFFF;
+  color: gainsboro; 
+  font-size: 20px;
 }
