@@ -4,7 +4,6 @@ var router = express.Router();
 var UserModel = require('../models/users')
 
 /* SIGN IN // LOGIN */
-
 router.post('/sign-in', async function(req, res, next) {
 
   var searchUser = await UserModel.findOne({
@@ -19,15 +18,16 @@ router.post('/sign-in', async function(req, res, next) {
       email: searchUser.email,
       password: searchUser.password
     }
+    
     res.redirect('/recherche')
   } else {
+    
     res.redirect("/")
   }
 })
 
   
 /* SIGN UP // INSCRIPTION */
-
 router.post('/sign-up', async function(req, res, next) {
 
   var searchUser = await UserModel.findOne({
@@ -44,13 +44,12 @@ router.post('/sign-up', async function(req, res, next) {
   
     var newUserSave = await newUser.save();
     req.session.user = newUserSave
+    
     res.redirect('/recherche') 
   } else {
       res.redirect('/')
   }
 })
-
-
 
 
 module.exports = router;
