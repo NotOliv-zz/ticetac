@@ -115,8 +115,9 @@ console.log(journeys)
   // MY TICKETS //
 router.get('/mytickets', async function(req, res, next) {
   console.log(req.query)
-
-var user 
+  console.log(req.session.user)
+  // var newUser  new UserModel({
+  // })
 
 
   res.render('mytickets');
