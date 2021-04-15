@@ -96,13 +96,9 @@ router.get('/result', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/sign-in', function(req, res, next) {
-  res.render('recherche');
-});
 
-router.get('/sign-up', function(req, res, next) {
-  res.render('recherche');
-});
+
+
 
 router.get('/recherche', function(req, res, next) {
   res.render('recherche');

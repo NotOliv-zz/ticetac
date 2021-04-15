@@ -10,8 +10,9 @@
     <title>Login</title>
 </head>
 <body>
-    
-  <%- include('navbar'); %>
+         <!-- NAVBAR START -->
+        <%- include('navbar'); %>
+
 
 <div class="container-fluid">             
  <div class="row align-items-center justify-content-center p-5">
@@ -31,9 +32,9 @@
           <!-- SIGN UP AREA -->
           <div class="col-12 col-sm-2 text-center">
             <h4 class="titleForm">Sign Up</h4>
-            <form action="/sign-up" method="POST">
+            <form action="/users/sign-up" method="POST">
               <label>Name</label>
-              <input label="Name" name="name" type="text" class="form-control" placeholder="Name">
+              <input name="name" type="text" class="form-control" placeholder="Name">
               <label>FirstName</label>
               <input name="firstname" type="text" class="form-control" placeholder="FirstName">
               <label>Email address</label>
