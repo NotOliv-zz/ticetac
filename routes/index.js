@@ -119,13 +119,24 @@ console.log(journeys)
   res.render('resultats', {journeys});
 });
 
-router.get('/panier', function(req, res, next) {
-  res.render('panier');
+router.get('/mytickets', function(req, res, next) {
+  res.render('mytickets');
 });
 
 router.get('/page-error', function(req, res, next) {
   res.render('page-error');
 });
+
+router.get('/resultats', function(req, res, next) {
+  res.render('resultats');
+});
+
+
+router.get('/lasttrips', function(req, res, next) {
+  res.render('lastTrips');
+});
+
+
 
 
 

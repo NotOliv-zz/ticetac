@@ -41,3 +41,12 @@ height: 50vh;
   color: gainsboro; 
   font-size: 20px;
 }
+
+.table {
+  background-color: #FFFFFF;
+}
+
+.mytickets {
+  text-align: center;
+  color: #FFFFFF;
+}
