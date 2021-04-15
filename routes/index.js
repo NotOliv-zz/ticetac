@@ -101,10 +101,12 @@ router.get('/result', function(req, res, next) {
 
 
 router.get('/recherche', function(req, res, next) {
+
   res.render('recherche');
 });
 
-router.get('/resultats', function(req, res, next) {
+router.post('/search', function(req, res, next) {
+  
   res.render('resultats');
 });
 

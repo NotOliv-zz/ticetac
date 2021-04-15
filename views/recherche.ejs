@@ -25,20 +25,22 @@
       
     <div class="row align-items-center p-5 border border-primary text-center ">
      
-      
+    
       <div class="row border border-primary  justify-content-center">
         <div class="titleForm" >
           <h4> One-Way Tickets: </h4>
         </div>
+        <form action="/search" method="post"> 
         <div class="col-2">
-          <input type="text" class="form-control" placeholder="From" aria-label="From">
+          <input type="text" class="form-control" name="depart" placeholder="From" aria-label="From">
         </div>
         <div class="col-2">
-          <input type="text" class="form-control" placeholder="To" aria-label="To">
+          <input type="text" class="form-control" name="arrivee" placeholder="To" aria-label="To">
         </div>
         <div class="col-2">
           <submit type="sumbit" class="form-control btn btn-danger" >Go</submit>
         </div>
+      </form>
       </div>
 
     </div>
