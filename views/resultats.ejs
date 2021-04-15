@@ -28,8 +28,11 @@
                  <div> <p> <%=journeys[i].departure%> /<%=journeys[i].arrival%></p> </div>
                  <p> train departure at <%=journeys[i].departureTime%></p>
                  <div> 
+                     
                   <span><%=journeys[i].price%>€</span>
-                     <button class="btn btn-danger"> Ok </button>
+                  <a href="/mytickets?journeyid=<%=journeys[i]._id%>" >
+                    <button type="button" class="btn btn-danger">Ok</button>
+                 </a>  
                  </div>
               </li>
 <%} %> 

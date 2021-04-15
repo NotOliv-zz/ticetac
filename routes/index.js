@@ -92,13 +92,11 @@ router.get('/result', function(req, res, next) {
 
   }
 
-
   res.render('index', { title: 'Express' });
 });
 
 
 router.get('/recherche', function(req, res, next) {
-  
 
   res.render('recherche');
 });
@@ -120,6 +118,7 @@ console.log(journeys)
 });
 
 router.get('/mytickets', function(req, res, next) {
+  console.log(req.query)
   res.render('mytickets');
 });
 
