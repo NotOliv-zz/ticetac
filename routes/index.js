@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 const mongoose = require('mongoose');
+var journeyModel = require('../models/journeys')
+var UserModel = require('../models/users')
 
 // useNewUrlParser ;)
 var options = {
@@ -22,15 +24,7 @@ mongoose.connect('mongodb+srv://dev:test@cluster0.exm89.mongodb.net/journey?retr
    }
 );
 
-var journeySchema = mongoose.Schema({
-  departure: String,
-  arrival: String,
-  date: Date,
-  departureTime: String,
-  price: Number,
-});
 
-var journeyModel = mongoose.model('journey', journeySchema);
 
 var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lille"]
 var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
@@ -117,8 +111,14 @@ console.log(journeys)
   res.render('resultats', {journeys, date, arrival, departure});
 });
 
-router.get('/mytickets', function(req, res, next) {
+
+  // MY TICKETS //
+router.get('/mytickets', async function(req, res, next) {
   console.log(req.query)
+
+var user 
+
+
   res.render('mytickets');
 });
 
