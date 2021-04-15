@@ -97,17 +97,26 @@ router.get('/result', function(req, res, next) {
 });
 
 
-
-
-
 router.get('/recherche', function(req, res, next) {
+  
 
   res.render('recherche');
 });
 
-router.post('/search', function(req, res, next) {
-  
-  res.render('resultats');
+router.post('/search', async function(req, res, next) {
+  var departure = req.body.depart;
+  var arrival = req.body.arrivee;
+  var date = req.body.date; 
+ 
+
+  var journeys = await journeyModel.find(
+    { departure : departure,
+    arrival: arrival,
+    date:date}
+)
+console.log(journeys)
+
+  res.render('resultats', {journeys});
 });
 
 router.get('/panier', function(req, res, next) {

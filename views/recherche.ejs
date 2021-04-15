@@ -14,15 +14,7 @@
 <body>
   <%- include('navbar'); %>
     <div class="container-fluid ">
-
-  
-
-
-
-
-
-     
-      
+ 
     <div class="row align-items-center p-5 border border-primary text-center ">
      
     
@@ -30,16 +22,15 @@
         <div class="titleForm" >
           <h4> One-Way Tickets: </h4>
         </div>
-        <form action="/search" method="post"> 
-        <div class="col-2">
-          <input type="text" class="form-control" name="depart" placeholder="From" aria-label="From">
-        </div>
-        <div class="col-2">
-          <input type="text" class="form-control" name="arrivee" placeholder="To" aria-label="To">
-        </div>
-        <div class="col-2">
-          <submit type="sumbit" class="form-control btn btn-danger" >Go</submit>
-        </div>
+        <form class="form-inline" action="/search" method="post"> 
+          <input type="text"  name="depart" placeholder="From" aria-label="From">
+        
+          <input type="text" name="arrivee" placeholder="To" aria-label="To">
+      
+          <input type="date"  name="date">
+       
+          <button type="sumbit" class="btn btn-danger">Go</button>
+        
       </form>
       </div>
 
