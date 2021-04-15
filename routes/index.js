@@ -96,9 +96,23 @@ router.get('/result', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/homepage', function(req, res, next) {
-  res.render('homepage');
+router.get('/recherche', function(req, res, next) {
+  res.render('recherche');
 });
+
+router.get('/resultats', function(req, res, next) {
+  res.render('resultats');
+});
+
+router.get('/panier', function(req, res, next) {
+  res.render('panier');
+});
+
+router.get('/page-error', function(req, res, next) {
+  res.render('page-error');
+});
+
+
 
 
 
