@@ -116,7 +116,7 @@ router.post('/search', async function(req, res, next) {
 )
 console.log(journeys)
 
-  res.render('resultats', {journeys});
+  res.render('resultats', {journeys, date, arrival, departure});
 });
 
 router.get('/mytickets', function(req, res, next) {

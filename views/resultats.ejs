@@ -16,27 +16,24 @@
 
 <div class="container-fluid">
     
-    <div class="row col-2 align-items-center justify-content-center">
+    <div class="row  ">
 
-        <h2 class="text-center"> Tickets availables on "day" : </h2>
+        <h2 class="text-center"> Tickets availables on <%= date %>   : </h2>
 
-        <ul class="list-group justify-content-center align-items-center">
-              <li class="col-8 list-group-item d-flex justify-content-between align-items-center p-3"> 
-                 <p> Paris/Lille</p>
-                 <p> train departure at </p>
+        <ul class="list-group  align-items-center">
+
+            <% for (i=0; i<journeys.length; i++) {  %> 
+                
+              <li class="col-8 list-group-item d-flex justify-content-between align-items-center p-3 m-2"> 
+                 <div> <p> <%=journeys[i].departure%> /<%=journeys[i].arrival%></p> </div>
+                 <p> train departure at <%=journeys[i].departureTime%></p>
                  <div> 
-                     92€
+                  <span><%=journeys[i].price%>€</span>
                      <button class="btn btn-danger"> Ok </button>
                  </div>
               </li>
-              <li class="col-8 list-group-item d-flex justify-content-between align-items-center p-3"> 
-                <p> Paris/Lille</p>
-                <p> train departure at </p>
-                <div> 
-                    92€
-                    <button class="btn btn-danger"> Ok </button>
-                </div>
-             </li>
+<%} %> 
+        </ul>
     </div>
 
 </div>
