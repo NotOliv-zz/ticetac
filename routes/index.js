@@ -14,7 +14,10 @@ var UserModel = require('../models/users')
 
 /* PAGE RECHERCHE */
     router.get('/recherche', function(req, res, next) {
-      res.render('recherche');
+      if (!req.session.user) {
+        res.redirect('/')
+      } else {
+      res.render('recherche')}
     });
 
 /* PAGE RESULTATS */
@@ -23,23 +26,43 @@ var UserModel = require('../models/users')
       var arrival = req.body.arrivee;
       var date = req.body.date; 
     
-      
       var journeys = await journeyModel.find(
         { departure : departure,
         arrival: arrival,
         date:date}
     )
-          /* ajouter une condition pour afficher la page d'erreur sur journeys est vide ?*/
-      res.render('resultats', {journeys, date, arrival, departure});
+        console.log(journeys)
+
+          if (journeys==[""]) {
+            res.redirect('/page-error')
+          } 
+
+          if (!req.session.user) {
+            res.redirect('/')
+          } else {
+      res.render('resultats', {journeys, date, arrival, departure})};
     });
 
 
 // PAGE MY TICKETS //
     router.get('/mytickets', async function(req, res, next) {
       console.log(req.query)
-      console.log(req.session.user)
+    
+      if (req.session.user.journey == undefined) {
+        req.session.user.journey = []; 
+      };
 
-      res.render('mytickets');
+      var journey = await journeyModel.findOne( {_id: req.query.journeyid} )
+      console.log(journey)
+
+      req.session.user.journey.push(journey) 
+
+      console.log(req.session.user) 
+
+        if (!req.session.user) {
+          res.redirect('/')
+        } else {
+      res.render('mytickets', {mytickets:req.session.user.journey})}
     });
 
 
@@ -52,6 +75,8 @@ var UserModel = require('../models/users')
     router.get('/page-error', function(req, res, next) {
       res.render('page-error');
     });
+
+
 
 
 
