@@ -22,13 +22,12 @@ var UserModel = require('../models/users')
 
 /* PAGE RESULTATS */
     router.post('/results', async function(req, res, next) {
-      var departure = req.body.departure;
+      var departure = req.body.depart;
       var arrival = req.body.arrivee;
       var date = req.body.date; 
-      console.log(departure)
     
       var journeys = await journeyModel.find(
-        { departure: departure,
+        { departure : departure,
         arrival: arrival,
         date:date}
        
