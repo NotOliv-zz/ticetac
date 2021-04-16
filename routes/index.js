@@ -23,11 +23,13 @@ var UserModel = require('../models/users')
       var arrival = req.body.arrivee;
       var date = req.body.date; 
     
+      
       var journeys = await journeyModel.find(
         { departure : departure,
         arrival: arrival,
         date:date}
     )
+          /* ajouter une condition pour afficher la page d'erreur sur journeys est vide ?*/
       res.render('resultats', {journeys, date, arrival, departure});
     });
 
@@ -35,7 +37,7 @@ var UserModel = require('../models/users')
 // PAGE MY TICKETS //
     router.get('/mytickets', async function(req, res, next) {
       console.log(req.query)
-    
+      console.log(req.session.user)
 
       res.render('mytickets');
     });
@@ -50,13 +52,6 @@ var UserModel = require('../models/users')
     router.get('/page-error', function(req, res, next) {
       res.render('page-error');
     });
-
-
-
-
-
-
-
 
 
 
