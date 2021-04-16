@@ -84,26 +84,30 @@ var UserModel = require('../models/users')
         { email: req.session.user.email},
         { $push: {userjourney: req.session.user.journey} })
    
-
-      res.render('recherche');
-    });
+        if (!req.session.user) {
+          res.redirect('/')
+        } else {
+      res.redirect('recherche')};
+    })
 
   // PAGE LAST TRIPS //
   router.get('/lasttrips', async function(req, res, next) {
   var user = await UserModel.findOne({email : req.session.user.email})
    
   await UserModel.findById(user._id).populate('userjourney')
-  console.log(user.userjourney)
+ 
 
     var lasttrips = []; 
     for (var i=0 ; i<user.userjourney.length; i++ ){
  var thisjourney = await journeyModel.findById(user.userjourney[i]);
  lasttrips.push(thisjourney)
 }
-  console.log(lasttrips)
+  
     
-
-    res.render('lastTrips', {lasttrips});
+  if (!req.session.user) {
+    res.redirect('/')
+  } else {
+    res.render('lastTrips', {lasttrips})};
   });
 
 
