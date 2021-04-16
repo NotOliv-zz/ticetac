@@ -39,13 +39,6 @@ var UserModel = require('../models/users')
         else {notFind === false; console.log("trouvé")}
         console.log(notFind)
 
-    /*var notFind = true ;
-    for 
-    if (journeys[i].departure != departure && journeys[i].arrival != arrival && journeys[i].date != date ) {notFind === true; console.log("pas trouvé") ; res.redirect("/page-error")} 
-    else {notFind === false; console.log("trouvé")}
-    console.log(notFind)
-*/
-
           if (!req.session.user) {
             res.redirect('/')
           } else {
@@ -84,18 +77,20 @@ var UserModel = require('../models/users')
 
     // ENREGISTREMENT DES JOURNEYS DANS LA BDD //
     router.get('/confirm', async function(req, res, next) {
-      req.session.user 
+      console.log(req.session.user.journey)
+
+     
       await UserModel.updateOne(
         { email: req.session.user.email},
-        { userjourney: req.session.user.journey }
-     );
+        { $push: {userjourney: req.session.user.journey} })
+   
 
       res.render('recherche');
     });
 
   // PAGE LAST TRIPS //
   router.get('/lasttrips', async function(req, res, next) {
-    var user = await UserModel.findOne({email : req.session.user.email})
+  var user = await UserModel.findOne({email : req.session.user.email})
    
   await UserModel.findById(user._id).populate('userjourney')
   console.log(user.userjourney)
