@@ -31,7 +31,7 @@ var UserModel = require('../models/users')
         arrival: arrival,
         date:date}
     )
-        console.log(journeys)
+        
 
           if (journeys==[""]) {
             res.redirect('/page-error')
@@ -46,18 +46,18 @@ var UserModel = require('../models/users')
 
 // PAGE MY TICKETS //
     router.get('/mytickets', async function(req, res, next) {
-      console.log(req.query)
+     
     
       if (req.session.user.journey == undefined) {
         req.session.user.journey = []; 
       };
 
       var journey = await journeyModel.findOne( {_id: req.query.journeyid} )
-      console.log(journey)
+   
 
       req.session.user.journey.push(journey) 
 
-      console.log(req.session.user) 
+     
 
 
         if (!req.session.user) {
@@ -67,19 +67,40 @@ var UserModel = require('../models/users')
     });
 
 
-// PAGE LAST TRIPS //
-    router.get('/lasttrips', async function(req, res, next) {
-      console.log(req.session)
-
-      
-
-      res.render('lastTrips');
-    });
 
  // PAGE ERROR //
     router.get('/page-error', function(req, res, next) {
       res.render('page-error');
     });
+
+    // ENREGISTREMENT DES JOURNEYS DANS LA BDD //
+    router.get('/confirm', async function(req, res, next) {
+      req.session.user 
+      await UserModel.updateOne(
+        { email: req.session.user.email},
+        { userjourney: req.session.user.journey }
+     );
+
+      res.render('recherche');
+    });
+
+  // PAGE LAST TRIPS //
+  router.get('/lasttrips', async function(req, res, next) {
+    var user = await UserModel.findOne({email : req.session.user.email})
+   
+  await UserModel.findById(user._id).populate('userjourney')
+  console.log(user.userjourney)
+
+    var lasttrips = []; 
+    for (var i=0 ; i<user.userjourney.length; i++ ){
+ var thisjourney = await journeyModel.findById(user.userjourney[i]);
+ lasttrips.push(thisjourney)
+}
+  console.log(lasttrips)
+    
+
+    res.render('lastTrips', {lasttrips});
+  });
 
 
 
