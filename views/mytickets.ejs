@@ -8,7 +8,7 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Ticketac</title>
 </head>
 
 <body>
@@ -20,30 +20,31 @@
       <!-- Tableau last trip -->
 
 
-      <div class="mytickets">
-        <h1>My tickets :</h1>
-       </div>
+      <div class="container-fluid">
+        <div class="row my-3 offset-3 mt-5">
+          <h2>My Tickets:</h2>
+        </div>
       <div class="row justify-content-center">
-        <div class="col-6">
+        <div class="col-8">
         <table class="table table-borderless">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Journey</th>
-            <th scope="col">Date</th>
-            <th scope="col">Departure time</th>
-            <th scope="col">Price</th>
+            <th class="p-3"scope="col">#</th>
+            <th class="p-3"scope="col">Journey</th>
+            <th class="p-3"scope="col">Date</th>
+            <th class="p-3"scope="col">Departure time</th>
+            <th class="p-3"scope="col">Price</th>
           </tr>
         </thead>
         <tbody>
           <% var total=0
             for(i=0;i<mytickets.length;i++) { %>
           <tr>
-            <th scope="row"><%=i+1%></th>
-            <td><%=mytickets[i].departure%> / <%=mytickets[i].arrival%></td>
-            <td><%=dateFormat(mytickets[i].date)%></td>
-            <td><%=mytickets[i].departureTime%></td>
-            <td><%=mytickets[i].price%>€</td>
+            <th class="p-4 align-items-center" scope="row"><%=i+1%></th>
+            <td class="p-4 align-items-center"><%=mytickets[i].departure%> / <%=mytickets[i].arrival%></td>
+            <td class="p-4 align-items-center"><%=dateFormat(mytickets[i].date)%></td>
+            <td class="p-4 align-items-center"><%=mytickets[i].departureTime%></td>
+            <td class="p-4 align-items-center"><%=mytickets[i].price%>€</td>
           </tr>
           <% 
             total+=mytickets[i].price
@@ -51,23 +52,23 @@
         
 
           <tr class="table-danger">
-            <th scope="row">Total</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><%=total%>€</td>
+            <th class="ps-4 align-items-center" scope="row">Total</th>
+            <td class="p-2 align-items-center"></td>
+            <td class="p-2 align-items-center"></td>
+            <td class="p-2 align-items-center"></td>
+            <td class="pe-4 align-items-center"><%=total%>€</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 
-    <div class="row offset-8" >
+    <div class="row offset-9" >
       <div>
 
         <!-- Button trigger modal -->
 
-  <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <button type="button" class="btn btn-danger  p-2 fs-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
    Confirm 
 </button>
 

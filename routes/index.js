@@ -30,12 +30,14 @@ var UserModel = require('../models/users')
         { departure : departure,
         arrival: arrival,
         date:date}
+       
     )
-        
+        console.log(journeys)
+    var notFind = true ;
+    if (journeys = []) {notFind === true; console.log("pas trouvé") ; res.redirect("/page-error")} 
+    else {notFind === false}
+    console.log(notFind)
 
-          if (journeys==[""]) {
-            res.redirect('/page-error')
-          } 
 
           if (!req.session.user) {
             res.redirect('/')

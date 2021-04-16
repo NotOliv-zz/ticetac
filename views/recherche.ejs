@@ -11,16 +11,16 @@
   <title>Ticketac</title>
 </head>
 
-<body>
+<body id="recherche">
   <%- include('navbar'); %>
   <div class="container-fluid ">
  
-    <div class="row align-items-center p-5 text-center ">
-        <div class="titleForm col-6" >
+    <div class="row align-items-center p-5 ">
+        <div class="titleForm col-6 p-3 text-center" >
           <h4> One-Way Tickets: </h4>
         </div>
         <form action="/results" method="post"> 
-          <div class="row g-4 justify-content-center">
+          <div class="row  justify-content-center">
               <div class="col-2 ">
                 <input type="text" class="form-control" name="depart" placeholder="From" aria-label="From">
               </div>
@@ -30,7 +30,7 @@
               <div class="col-2">
                 <input type="date" class="form-control" name="date">
               </div>
-              <div class="col-2">
+              <div class="col-2 ">
                 <button type="sumbit" class="btn btn-danger">Go</button>           
               </div>
           </div>
