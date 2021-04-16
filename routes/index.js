@@ -22,12 +22,13 @@ var UserModel = require('../models/users')
 
 /* PAGE RESULTATS */
     router.post('/results', async function(req, res, next) {
-      var departure = req.body.depart;
+      var departure = req.body.departure;
       var arrival = req.body.arrivee;
       var date = req.body.date; 
+      console.log(departure)
     
       var journeys = await journeyModel.find(
-        { departure : departure,
+        { departure: departure,
         arrival: arrival,
         date:date}
        
@@ -84,6 +85,7 @@ var UserModel = require('../models/users')
         { email: req.session.user.email},
         { $push: {userjourney: req.session.user.journey} })
    
+        req.session.user.journey = []; 
         if (!req.session.user) {
           res.redirect('/')
         } else {
