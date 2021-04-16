@@ -59,6 +59,7 @@ var UserModel = require('../models/users')
 
       console.log(req.session.user) 
 
+
         if (!req.session.user) {
           res.redirect('/')
         } else {
@@ -67,7 +68,11 @@ var UserModel = require('../models/users')
 
 
 // PAGE LAST TRIPS //
-    router.get('/lasttrips', function(req, res, next) {
+    router.get('/lasttrips', async function(req, res, next) {
+      console.log(req.session)
+
+      
+
       res.render('lastTrips');
     });
 
