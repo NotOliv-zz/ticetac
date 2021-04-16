@@ -26,17 +26,17 @@
                     <% for (i=0; i<journeys.length; i++) { %>
 
                         <li class="col-8 list-group-item d-flex rounded justify-content-between  p-4 m-2">
-                            <div class="fs-5 align-items-center">
+                            <div class="fs-5 mx-3 align-items-center">
                                 <p>
                                     <%=journeys[i].departure%> /<%=journeys[i].arrival%>
                                 </p>
                             </div>
 
-                            <div class="fs-6 text-secondary align-items-center ">
+                            <div class="fs-6 mx-3 text-secondary align-items-center ">
                                 <p> train departure at <%=journeys[i].departureTime%></p>
                             </div>
 
-                            <div class=" fs-5 align-items-center">
+                            <div class=" fs-5 mx-3 align-items-center">
                                 <span>
                                     <%=journeys[i].price%>€
                                 </span>
