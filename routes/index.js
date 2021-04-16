@@ -32,12 +32,19 @@ var UserModel = require('../models/users')
         date:date}
        
     )
-        console.log(journeys)
-    var notFind = true ;
-    if (journeys = []) {notFind === true; console.log("pas trouvé") ; res.redirect("/page-error")} 
-    else {notFind === false}
-    console.log(notFind)
+     console.log(journeys)
 
+        var notFind = true
+        if (journeys[0] == null) {notFind === true; console.log("pas trouvé") ; res.redirect("/page-error")} 
+        else {notFind === false; console.log("trouvé")}
+        console.log(notFind)
+
+    /*var notFind = true ;
+    for 
+    if (journeys[i].departure != departure && journeys[i].arrival != arrival && journeys[i].date != date ) {notFind === true; console.log("pas trouvé") ; res.redirect("/page-error")} 
+    else {notFind === false; console.log("trouvé")}
+    console.log(notFind)
+*/
 
           if (!req.session.user) {
             res.redirect('/')
